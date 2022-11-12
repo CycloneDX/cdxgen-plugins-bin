@@ -4,14 +4,14 @@ sources := main.go
 build = CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -o build/$(appname)-$(1)-$(2)$(3)
 sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).sha256
 
-.PHONY: all windows darwin linux clean
+.PHONY: all windows linux clean
 
-all: windows darwin linux
+all: windows linux
 
 clean: rm -rf build/
 
 ##### LINUX BUILDS #####
-linux: build/linux_arm build/linux_arm64 build/linux_386 build/linux_amd64
+linux: build/linux_amd64
 
 build/linux_386: $(sources)
 	$(call build,linux,386,)
@@ -37,7 +37,7 @@ build/darwin_amd64: $(sources)
 	$(call sha,darwin,amd64,)
 
 ##### WINDOWS BUILDS #####
-windows: build/windows_386 build/windows_amd64
+windows: build/windows_amd64
 
 build/windows_386: $(sources)
 	$(call build,windows,386,.exe)
