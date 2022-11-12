@@ -21,6 +21,9 @@
     "url": "https://github.com/ngcloudsec/cdxgen-plugins-bin/issues"
   },
   "homepage": "https://github.com/ngcloudsec/cdxgen-plugins-bin#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "*.js",
     "plugins/"
