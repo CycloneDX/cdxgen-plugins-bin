@@ -37,7 +37,7 @@ build/darwin_amd64: $(sources)
 	$(call sha,darwin,amd64,)
 
 ##### WINDOWS BUILDS #####
-windows: build/windows_amd64
+windows: build/windows_386
 
 build/windows_386: $(sources)
 	$(call build,windows,386,.exe)
