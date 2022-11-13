@@ -33,9 +33,9 @@ jobs:
         npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
         npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
         bash build.sh
-        echo "ngcloudsec:registry=https://npm.pkg.github.com" > $HOME/.npmrc
+        echo "ngcloudsec:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public
-        echo "ngcloudsec:registry=https://registry.npmjs.org" > $HOME/.npmrc
+        echo "ngcloudsec:registry=https://registry.npmjs.org" > ~/.npmrc
         npm publish --access=public
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
