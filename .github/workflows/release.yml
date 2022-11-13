@@ -31,10 +31,10 @@ jobs:
     - name: Release
       run: |
         npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
+        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
         bash build.sh
         echo "ngcloudsec:registry=https://npm.pkg.github.com" > $HOME/.npmrc
         npm publish --access=public
-        npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
         echo "ngcloudsec:registry=https://registry.npmjs.org" > $HOME/.npmrc
         npm publish --access=public
       env:
