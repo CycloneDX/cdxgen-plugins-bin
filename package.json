@@ -1,6 +1,6 @@
 {
   "name": "@ngcloudsec/cdxgen-plugins-bin",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Binary plugins for @appthreat/cdxgen npm package",
   "main": "index.js",
   "repository": {

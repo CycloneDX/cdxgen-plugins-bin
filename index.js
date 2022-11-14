@@ -124,9 +124,10 @@ const getOSPackages = (src) => {
         for (const comp of tmpBom.components) {
           delete comp.properties;
           if (comp.purl) {
-            // Retain go and maven components alone from trivy
+            // Retain go components alone from trivy
             if (
               comp.purl.startsWith("pkg:npm") ||
+              comp.purl.startsWith("pkg:maven") ||
               comp.purl.startsWith("pkg:pypi") ||
               comp.purl.startsWith("pkg:cargo") ||
               comp.purl.startsWith("pkg:composer") ||
