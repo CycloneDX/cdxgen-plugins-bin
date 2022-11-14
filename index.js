@@ -150,6 +150,9 @@ const getOSPackages = (src) => {
             }
             comp.group = group;
             comp.name = name;
+            if (comp.licenses && Array.isArray(comp.licenses) && comp.licenses.length) {
+              comp.licenses = comp.licenses[0];
+            }
             pkgList.push(comp);
           }
         }
