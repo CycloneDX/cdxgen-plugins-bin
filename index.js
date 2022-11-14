@@ -50,7 +50,7 @@ if (fs.existsSync(path.join(__dirname, "plugins", "trivy"))) {
 const getGoBuildInfo = (src) => {
   if (GOVERSION_BIN) {
     let result = spawnSync(GOVERSION_BIN, [src], {
-      encoding: "utf-8",
+      encoding: "utf-8"
     });
     if (result.status !== 0 || result.error) {
       console.error(result.stdout, result.stderr);
@@ -58,7 +58,7 @@ const getGoBuildInfo = (src) => {
         console.log("Falling back to go version command");
       }
       result = spawnSync("go", ["version", "-v", "-m", src], {
-        encoding: "utf-8",
+        encoding: "utf-8"
       });
       if (result.status !== 0 || result.error) {
         console.error(result.stdout, result.stderr);
@@ -79,16 +79,20 @@ exports.getGoBuildInfo = getGoBuildInfo;
 const getOSPackages = (src) => {
   const pkgList = [];
   if (TRIVY_BIN) {
+    let imageType = "image";
+    if (fs.existsSync(src)) {
+      imageType = "rootfs";
+    }
     let tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "trivy-cdxgen-"));
     const bomJsonFile = path.join(tempDir, "trivy-bom.json");
     const args = [
-      "rootfs",
+      imageType,
       "--skip-update",
       "--offline-scan",
       "--format",
       "cyclonedx",
       "--output",
-      bomJsonFile,
+      bomJsonFile
     ];
     if (!DEBUG_MODE) {
       args.push("-q");
@@ -98,7 +102,7 @@ const getOSPackages = (src) => {
       console.log("Executing", TRIVY_BIN, args.join(" "));
     }
     let result = spawnSync(TRIVY_BIN, args, {
-      encoding: "utf-8",
+      encoding: "utf-8"
     });
     if (result.status !== 0 || result.error) {
       console.error(result.stdout, result.stderr);
@@ -106,7 +110,7 @@ const getOSPackages = (src) => {
     if (fs.existsSync(bomJsonFile)) {
       const tmpBom = JSON.parse(
         fs.readFileSync(bomJsonFile, {
-          encoding: "utf-8",
+          encoding: "utf-8"
         })
       );
       // Clean up
