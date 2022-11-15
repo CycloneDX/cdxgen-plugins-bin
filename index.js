@@ -46,7 +46,17 @@ if (fs.existsSync(path.join(__dirname, "plugins", "trivy"))) {
 } else if (process.env.TRIVY_CMD) {
   TRIVY_BIN = process.env.TRIVY_CMD;
 }
-
+let CARGO_AUDITABLE_BIN = null;
+if (fs.existsSync(path.join(__dirname, "plugins", "cargo-auditable"))) {
+  CARGO_AUDITABLE_BIN = path.join(
+    __dirname,
+    "plugins",
+    "cargo-auditable",
+    "cargo-auditable-cdxgen-" + platform + "-" + arch + extn
+  );
+} else if (process.env.CARGO_AUDITABLE_CMD) {
+  CARGO_AUDITABLE_BIN = process.env.CARGO_AUDITABLE_CMD;
+}
 const getGoBuildInfo = (src) => {
   if (GOVERSION_BIN) {
     let result = spawnSync(GOVERSION_BIN, [src], {
@@ -75,6 +85,26 @@ const getGoBuildInfo = (src) => {
   return undefined;
 };
 exports.getGoBuildInfo = getGoBuildInfo;
+
+const getCargoAuditableInfo = (src) => {
+  if (CARGO_AUDITABLE_BIN) {
+    let result = spawnSync(CARGO_AUDITABLE_BIN, [src], {
+      encoding: "utf-8"
+    });
+    if (result.status !== 0 || result.error) {
+      console.error(result.stdout, result.stderr);
+    }
+    if (result) {
+      const stdout = result.stdout;
+      if (stdout) {
+        const cmdOutput = Buffer.from(stdout).toString();
+        return cmdOutput;
+      }
+    }
+  }
+  return undefined;
+};
+exports.getCargoAuditableInfo = getCargoAuditableInfo;
 
 const getOSPackages = (src) => {
   const pkgList = [];
@@ -150,7 +180,11 @@ const getOSPackages = (src) => {
             }
             comp.group = group;
             comp.name = name;
-            if (comp.licenses && Array.isArray(comp.licenses) && comp.licenses.length) {
+            if (
+              comp.licenses &&
+              Array.isArray(comp.licenses) &&
+              comp.licenses.length
+            ) {
               comp.licenses = [comp.licenses[0]];
             }
             pkgList.push(comp);
