@@ -11,7 +11,7 @@ all: windows darwin linux
 clean: rm -rf build/
 
 ##### LINUX BUILDS #####
-linux: build/linux_arm64 build/linux_amd64
+linux: build/linux_amd64
 
 build/linux_386: $(sources)
 	$(call build,linux,386,)
