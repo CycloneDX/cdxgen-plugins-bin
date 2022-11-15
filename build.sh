@@ -13,3 +13,7 @@ do
     rm -rf build
     popd
 done
+
+./plugins/goversion/goversion-linux-amd64
+./plugins/trivy/trivy-cdxgen-linux-amd64 -v
+./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64

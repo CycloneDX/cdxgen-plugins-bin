@@ -1,9 +1,7 @@
-name: Release npm package
+name: Build npm package
 
 on:
   push:
-    tags:
-    - 'v*'
 
 jobs:
   pkg:
@@ -29,19 +27,11 @@ jobs:
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-
-    - name: Release
+    - name: Build
       run: |
         wget https://github.com/upx/upx/releases/download/v4.0.0/upx-4.0.0-amd64_linux.tar.xz
         tar -xvf upx-4.0.0-amd64_linux.tar.xz
         chmod +x upx-4.0.0-amd64_linux/upx
         sudo cp upx-4.0.0-amd64_linux/upx /usr/local/bin/
-        npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
-        npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
         bash build.sh
-        echo "ngcloudsec:registry=https://npm.pkg.github.com" > ~/.npmrc
-        npm publish --access=public --@ngcloudsec:registry='https://npm.pkg.github.com'
-        echo "ngcloudsec:registry=https://registry.npmjs.org" > ~/.npmrc
-        npm publish --access=public --@ngcloudsec:registry='https://registry.npmjs.org'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        npm publish --dry-run
