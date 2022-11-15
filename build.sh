@@ -15,7 +15,7 @@ rm osquery-5.6.0.windows_x86_64.zip
 
 wget https://github.com/osquery/osquery/releases/download/5.6.0/osquery-5.6.0_1.linux_x86_64.tar.gz
 tar -xvf osquery-5.6.0_1.linux_x86_64.tar.gz
-cp usr/bin/osqueryi plugins/osquery/osqueryi-linux-amd64
+cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-linux-amd64
 upx -1 plugins/osquery/osqueryi-linux-amd64
 sha256sum plugins/osquery/osqueryi-linux-amd64 > plugins/osquery/osqueryi-linux-amd64.sha256
 rm -rf etc usr var opt
