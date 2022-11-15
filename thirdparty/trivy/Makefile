@@ -6,7 +6,7 @@ sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).
 
 .PHONY: all windows linux clean
 
-all: windows linux
+all: linux
 
 clean: rm -rf build/
 
