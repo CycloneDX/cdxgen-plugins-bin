@@ -1,7 +1,7 @@
 appname := goversion
 sources := version.go exe.go xcoff.go file.go
 
-build = CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -ldflags "-s -w" -o build/$(appname)-$(1)-$(2)$(3) && upx -1 build/$(appname)-$(1)-$(2)$(3)
+build = CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-$(1)-$(2)$(3) && upx -1 build/$(appname)-$(1)-$(2)$(3)
 sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).sha256
 
 .PHONY: all windows darwin linux clean
