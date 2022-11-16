@@ -57,6 +57,17 @@ if (fs.existsSync(path.join(__dirname, "plugins", "cargo-auditable"))) {
 } else if (process.env.CARGO_AUDITABLE_CMD) {
   CARGO_AUDITABLE_BIN = process.env.CARGO_AUDITABLE_CMD;
 }
+let OSQUERY_BIN = null;
+if (fs.existsSync(path.join(__dirname, "plugins", "osquery"))) {
+  OSQUERY_BIN = path.join(
+    __dirname,
+    "plugins",
+    "osquery",
+    "osqueryi-" + platform + "-" + arch + extn
+  );
+} else if (process.env.OSQUERY_CMD) {
+  OSQUERY_BIN = process.env.OSQUERY_CMD;
+}
 const getGoBuildInfo = (src) => {
   if (GOVERSION_BIN) {
     let result = spawnSync(GOVERSION_BIN, [src], {
@@ -197,3 +208,33 @@ const getOSPackages = (src) => {
   return pkgList;
 };
 exports.getOSPackages = getOSPackages;
+
+const executeOsQuery = (query) => {
+  if (OSQUERY_BIN) {
+    if (!query.endsWith(";")) {
+      query = query + ";";
+    }
+    const args = ["--json", query];
+    if (DEBUG_MODE) {
+      console.log("Execuing", OSQUERY_BIN, args.join(" "));
+    }
+    let result = spawnSync(OSQUERY_BIN, args, {
+      encoding: "utf-8"
+    });
+    if (result.status !== 0 || result.error) {
+      console.error(result.stdout, result.stderr);
+    }
+    if (result) {
+      const stdout = result.stdout;
+      if (stdout) {
+        const cmdOutput = Buffer.from(stdout).toString();
+        if (cmdOutput !== "") {
+          return JSON.parse(cmdOutput);
+        }
+        return undefined;
+      }
+    }
+  }
+  return undefined;
+};
+exports.executeOsQuery = executeOsQuery;
