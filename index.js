@@ -2,6 +2,7 @@ const os = require("os");
 const fs = require("fs");
 const path = require("path");
 const { spawnSync } = require("child_process");
+const { PackageURL } = require("packageurl-js");
 
 // Debug mode flag
 const DEBUG_MODE =
@@ -188,6 +189,12 @@ const getOSPackages = (src) => {
             const name = path.basename(comp.name);
             if (group === ".") {
               group = "";
+            }
+            if (group === "") {
+              const purlObj = PackageURL.fromString(comp.purl);
+              if (purlObj.namespace && purlObj.namespace !== "") {
+                group = purlObj.namespace;
+              }
             }
             comp.group = group;
             comp.name = name;
