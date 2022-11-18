@@ -1,7 +1,3 @@
-Remove-Item plugins\goversion -Recurse -Force
-Remove-Item plugins\cargo-auditable -Recurse -Force
-Remove-Item plugins\osquery -Recurse -Force
-
 New-Item -ItemType Directory -Path plugins\goversion -Force
 New-Item -ItemType Directory -Path plugins\cargo-auditable -Force
 New-Item -ItemType Directory -Path plugins\osquery -Force
