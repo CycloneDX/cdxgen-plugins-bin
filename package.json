@@ -24,8 +24,5 @@
   "files": [
     "*.js",
     "plugins/"
-  ],
-  "dependencies": {
-    "packageurl-js": "^1.0.0"
-  }
+  ]
 }
