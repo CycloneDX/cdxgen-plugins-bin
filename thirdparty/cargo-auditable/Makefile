@@ -1,3 +1,4 @@
+PATH  := $(PATH):/usr/local/go/bin:$HOME/go/bin:
 appname := cargo-auditable-cdxgen
 sources := main.go
 

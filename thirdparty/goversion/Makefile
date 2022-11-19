@@ -1,3 +1,4 @@
+PATH  := $(PATH):/usr/local/go/bin:$HOME/go/bin:
 appname := goversion
 sources := version.go exe.go xcoff.go file.go
 
