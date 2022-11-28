@@ -1,6 +1,8 @@
 # Introduction
 
-This repo contains binary executables that could be invoked by cdxgen.
+This repo contains binary executables that could be invoked by [cdxgen](https://github.com/AppThreat/cdxgen).
+
+![cdxgen logo](cdxgen.png)
 
 ## Usage
 
