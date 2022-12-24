@@ -16,3 +16,7 @@ sudo npm install -g @ngcloudsec/cdxgen-plugins-bin
 ```
 
 cdxgen would automatically use the plugins from the global node_modules path to enrich the SBoM output for certain project types such as `docker`.
+
+## Discord support
+
+The developers could be reached via the [discord](https://discord.gg/DCNxzaeUpd) channel.
