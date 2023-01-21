@@ -1,11 +1,11 @@
 {
-  "name": "@ngcloudsec/cdxgen-plugins-bin",
+  "name": "@appthreat/cdxgen-plugins-bin",
   "version": "0.3.0",
   "description": "Binary plugins for @appthreat/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngcloudsec/cdxgen-plugins-bin.git"
+    "url": "git+https://github.com/appthreat/cdxgen-plugins-bin.git"
   },
   "keywords": [
     "cdxgen",
@@ -18,9 +18,9 @@
   "author": "Team CloudSec",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ngcloudsec/cdxgen-plugins-bin/issues"
+    "url": "https://github.com/appthreat/cdxgen-plugins-bin/issues"
   },
-  "homepage": "https://github.com/ngcloudsec/cdxgen-plugins-bin#readme",
+  "homepage": "https://github.com/appthreat/cdxgen-plugins-bin#readme",
   "files": [
     "*.js",
     "plugins/"
