@@ -8,11 +8,10 @@ This repo contains binary executables that could be invoked by [cdxgen](https://
 
 ## Installation
 
-Install cdxgen first followed by the plugins.
+Install cdxgen which installs this plugin as an optional dependency.
 
 ```bash
 sudo npm install -g @appthreat/cdxgen
-sudo npm install -g @appthreat/cdxgen-plugins-bin
 ```
 
 cdxgen would automatically use the plugins from the global node_modules path to enrich the SBoM output for certain project types such as `docker`.

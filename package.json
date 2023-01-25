@@ -1,7 +1,7 @@
 {
   "name": "@appthreat/cdxgen-plugins-bin",
   "version": "0.3.1",
-  "description": "Binary plugins for @appthreat/cdxgen npm package",
+  "description": "Binary plugins to supercharge @appthreat/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "dependency",
     "appsec"
   ],
-  "author": "Team CloudSec",
+  "author": "Team AppThreat <cloud@appthreat.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/appthreat/cdxgen-plugins-bin/issues"
