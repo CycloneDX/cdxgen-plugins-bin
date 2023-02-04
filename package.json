@@ -1,11 +1,11 @@
 {
-  "name": "@appthreat/cdxgen-plugins-bin",
+  "name": "@cyclonedx/cdxgen-plugins-bin",
   "version": "1.0.0",
-  "description": "Binary plugins to supercharge @appthreat/cdxgen npm package",
+  "description": "Binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appthreat/cdxgen-plugins-bin.git"
+    "url": "git+https://github.com/cyclonedx/cdxgen-plugins-bin.git"
   },
   "keywords": [
     "cdxgen",
@@ -15,12 +15,12 @@
     "dependency",
     "appsec"
   ],
-  "author": "Team AppThreat <cloud@appthreat.com>",
+  "author": "Prabhu Subramanian <prabhu@appthreat.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/appthreat/cdxgen-plugins-bin/issues"
+    "url": "https://github.com/cyclonedx/cdxgen-plugins-bin/issues"
   },
-  "homepage": "https://github.com/appthreat/cdxgen-plugins-bin#readme",
+  "homepage": "https://github.com/cyclonedx/cdxgen-plugins-bin#readme",
   "files": [
     "*.js",
     "plugins/"
