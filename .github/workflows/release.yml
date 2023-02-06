@@ -36,12 +36,11 @@ jobs:
         chmod +x upx-4.0.0-amd64_linux/upx
         sudo cp upx-4.0.0-amd64_linux/upx /usr/local/bin/
         npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
-        npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
         bash build.sh
         echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
-        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
-        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        npm config set "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN"
+        npm publish --access=public
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
