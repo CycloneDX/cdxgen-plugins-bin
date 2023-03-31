@@ -5,9 +5,9 @@ sources := main.go
 build = CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-$(1)-$(2)$(3) && upx -1 build/$(appname)-$(1)-$(2)$(3)
 sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).sha256
 
-.PHONY: all windows linux clean
+.PHONY: all windows darwin linux clean
 
-all: linux
+all: darwin linux
 
 clean: rm -rf build/
 
@@ -31,11 +31,15 @@ build/linux_arm64: $(sources)
 	$(call sha,linux,arm64,)
 
 ##### DARWIN (MAC) BUILDS #####
-darwin: build/darwin_amd64
+darwin: build/darwin_amd64 build/darwin_arm64
 
 build/darwin_amd64: $(sources)
 	$(call build,darwin,amd64,)
 	$(call sha,darwin,amd64,)
+
+build/darwin_arm64: $(sources)
+	$(call build,darwin,arm64,)
+	$(call sha,darwin,arm64,)
 
 ##### WINDOWS BUILDS #####
 windows: build/windows_amd64

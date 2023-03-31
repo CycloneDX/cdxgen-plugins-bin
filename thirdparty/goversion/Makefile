@@ -31,11 +31,15 @@ build/linux_arm64: $(sources)
 	$(call sha,linux,arm64,)
 
 ##### DARWIN (MAC) BUILDS #####
-darwin: build/darwin_amd64
+darwin: build/darwin_amd64 build/darwin_arm64
 
 build/darwin_amd64: $(sources)
 	$(call build,darwin,amd64,)
 	$(call sha,darwin,amd64,)
+
+build/darwin_arm64: $(sources)
+	$(call build,darwin,arm64,)
+	$(call sha,darwin,arm64,)
 
 ##### WINDOWS BUILDS #####
 windows: build/windows_amd64
