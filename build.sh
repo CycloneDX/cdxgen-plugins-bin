@@ -5,21 +5,21 @@ rm -rf plugins/cargo-auditable
 rm -rf plugins/osquery
 mkdir -p plugins/osquery
 
-wget https://github.com/osquery/osquery/releases/download/5.8.2/osquery-5.8.2.windows_x86_64.zip
-unzip osquery-5.8.2.windows_x86_64.zip
-cp "osquery-5.8.2.windows_x86_64/Program Files/osquery/osqueryi.exe" plugins/osquery/osqueryi-windows-amd64.exe
+wget https://github.com/osquery/osquery/releases/download/5.9.1/osquery-5.9.1.windows_x86_64.zip
+unzip osquery-5.9.1.windows_x86_64.zip
+cp "osquery-5.9.1.windows_x86_64/Program Files/osquery/osqueryi.exe" plugins/osquery/osqueryi-windows-amd64.exe
 upx -9 --lzma plugins/osquery/osqueryi-windows-amd64.exe
 sha256sum plugins/osquery/osqueryi-windows-amd64.exe > plugins/osquery/osqueryi-windows-amd64.exe.sha256
-rm -rf osquery-5.8.2.windows_x86_64
-rm osquery-5.8.2.windows_x86_64.zip
+rm -rf osquery-5.9.1.windows_x86_64
+rm osquery-5.9.1.windows_x86_64.zip
 
-wget https://github.com/osquery/osquery/releases/download/5.8.2/osquery-5.8.2_1.linux_x86_64.tar.gz
-tar -xvf osquery-5.8.2_1.linux_x86_64.tar.gz
+wget https://github.com/osquery/osquery/releases/download/5.9.1/osquery-5.9.1_1.linux_x86_64.tar.gz
+tar -xvf osquery-5.9.1_1.linux_x86_64.tar.gz
 cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-linux-amd64
 upx -9 --lzma plugins/osquery/osqueryi-linux-amd64
 sha256sum plugins/osquery/osqueryi-linux-amd64 > plugins/osquery/osqueryi-linux-amd64.sha256
 rm -rf etc usr var opt
-rm osquery-5.8.2_1.linux_x86_64.tar.gz
+rm osquery-5.9.1_1.linux_x86_64.tar.gz
 
 for plug in goversion trivy cargo-auditable
 do
