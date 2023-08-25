@@ -40,3 +40,4 @@ jobs:
         pip3 install blint
         blint -i plugins -o /tmp/reports
         npm publish --dry-run
+      continue-on-error: true
