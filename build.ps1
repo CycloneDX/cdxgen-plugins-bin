@@ -29,6 +29,14 @@ copy build\* ..\..\plugins\cargo-auditable\
 Remove-Item build -Recurse -Force
 cd ..\..
 
+New-Item -ItemType Directory -Path plugins\trivy -Force
+cd thirdparty\trivy
+go build -ldflags "-H=windowsgui -s -w" -o build\trivy-windows-amd64.exe
+..\..\upx-4.1.0-win64\upx.exe -9 --lzma build\trivy-windows-amd64.exe
+copy build\* ..\..\plugins\trivy\
+Remove-Item build -Recurse -Force
+cd ..\..
+
 Remove-Item osquery-5.9.1.windows_x86_64 -Recurse -Force
 Remove-Item osquery-5.9.1.windows_x86_64.zip -Recurse -Force
 Remove-Item upx-4.1.0-win64 -Recurse -Force

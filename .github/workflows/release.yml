@@ -16,7 +16,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 20.x
         registry-url: https://registry.npmjs.org/
     - uses: actions/setup-go@v3
       with:
@@ -42,6 +42,18 @@ jobs:
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
         echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        pushd packages/arm64
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
+        pushd packages/ppc64
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NPMJS_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
