@@ -1,7 +1,7 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin",
+  "name": "@cyclonedx/cdxgen-plugins-bin-arm64",
   "version": "1.4.0",
-  "description": "Binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "description": "Arm64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -26,6 +26,6 @@
     "plugins/"
   ],
   "cpu": [
-    "x64"
+    "arm64"
   ]
 }

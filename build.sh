@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 rm -rf plugins/goversion
 rm -rf plugins/trivy
 rm -rf plugins/cargo-auditable
@@ -36,3 +37,12 @@ done
 ./plugins/goversion/goversion-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
 ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
+
+chmod +x packages/arm64/build-arm64.sh
+pushd packages/arm64
+./build-arm64.sh
+popd
+chmod +x packages/ppc64/build-ppc64.sh
+pushd packages/ppc64
+./build-ppc64.sh
+popd
