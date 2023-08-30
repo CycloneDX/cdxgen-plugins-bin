@@ -42,6 +42,7 @@ chmod +x packages/arm64/build-arm64.sh
 pushd packages/arm64
 ./build-arm64.sh
 popd
+chmod +x packages/ppc64/build-ppc64.sh
 pushd packages/ppc64
 ./build-ppc64.sh
 popd
