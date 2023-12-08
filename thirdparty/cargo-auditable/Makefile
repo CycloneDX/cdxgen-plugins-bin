@@ -7,7 +7,7 @@ sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).
 
 .PHONY: all windows darwin linux clean
 
-all: windows darwin linux
+all: windows linux
 
 clean: rm -rf build/
 
