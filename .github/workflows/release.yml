@@ -31,10 +31,10 @@ jobs:
           ${{ runner.os }}-go-
     - name: Release
       run: |
-        wget https://github.com/upx/upx/releases/download/v4.1.0/upx-4.1.0-amd64_linux.tar.xz
-        tar -xvf upx-4.1.0-amd64_linux.tar.xz
-        chmod +x upx-4.1.0-amd64_linux/upx
-        sudo cp upx-4.1.0-amd64_linux/upx /usr/local/bin/
+        wget https://github.com/upx/upx/releases/download/v4.2.1/upx-4.2.1-amd64_linux.tar.xz
+        tar -xvf upx-4.2.1-amd64_linux.tar.xz
+        chmod +x upx-4.2.1-amd64_linux/upx
+        sudo cp upx-4.2.1-amd64_linux/upx /usr/local/bin/
         npm config set //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
         npm config set //registry.npmjs.org/:_authToken=$NPMJS_AUTH_TOKEN
         bash build.sh
