@@ -8,13 +8,13 @@ This repo contains binary executables that could be invoked by [cdxgen](https://
 
 ## Installation
 
-Install cdxgen which installs this plugin as an optional dependency.
+Install cdxgen, which installs this plugin as an optional dependency.
 
 ```bash
 sudo npm install -g @cyclonedx/cdxgen
 ```
 
-cdxgen would automatically use the plugins from the global node_modules path to enrich the SBoM output for certain project types such as `docker`.
+cdxgen would automatically use the plugins from the global node_modules path to enrich the SBOM output for certain project types such as `docker`.
 
 ## Discord support
 
