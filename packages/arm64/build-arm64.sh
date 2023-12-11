@@ -24,7 +24,6 @@ rm osquery-5.10.2_1.linux_aarch64.tar.gz
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -o plugins/dosai/dosai-linux-arm64
 chmod +x plugins/dosai/dosai-linux-arm64
-upx -9 --lzma plugins/dosai/dosai-linux-arm64
 sha256sum plugins/dosai/dosai-linux-arm64 > plugins/dosai/dosai-linux-arm64.sha256
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-windows-arm64.exe -o plugins/dosai/dosai-windows-arm64.exe

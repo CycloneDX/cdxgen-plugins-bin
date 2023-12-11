@@ -25,7 +25,6 @@ rm osquery-5.10.2_1.linux_x86_64.tar.gz
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -o plugins/dosai/dosai-linux-amd64
 chmod +x plugins/dosai/dosai-linux-amd64
-upx -9 --lzma plugins/dosai/dosai-linux-amd64
 sha256sum plugins/dosai/dosai-linux-amd64 > plugins/dosai/dosai-linux-amd64.sha256
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai.exe -o plugins/dosai/dosai-windows-amd64.exe
@@ -46,6 +45,7 @@ done
 ./plugins/goversion/goversion-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
 ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
+./plugins/dosai/dosai-linux-amd64 --help
 
 chmod +x packages/arm64/build-arm64.sh
 pushd packages/arm64
