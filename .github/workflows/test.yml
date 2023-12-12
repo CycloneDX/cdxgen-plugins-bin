@@ -40,6 +40,9 @@ jobs:
         pip3 install blint
         blint -i plugins -o /tmp/reports
         npm publish --dry-run
+        pushd packages/windows-amd64
+        npm publish --dry-run
+        popd
         pushd packages/arm64
         npm publish --dry-run
         popd
