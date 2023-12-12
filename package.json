@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cdxgen-plugins-bin",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
