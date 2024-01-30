@@ -21,5 +21,5 @@ sha256sum plugins/dosai/dosai-windows-amd64.exe > plugins/dosai/dosai-windows-am
 for plug in goversion trivy cargo-auditable
 do
     mkdir -p plugins/$plug
-    mv ../../plugins/$plug/*.exe* plugins/$plug/
+    mv ../../plugins/$plug/*windows-amd64* plugins/$plug/
 done
