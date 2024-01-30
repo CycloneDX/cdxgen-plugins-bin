@@ -10,6 +10,7 @@ Invoke-WebRequest -Uri https://github.com/osquery/osquery/releases/download/5.11
 Expand-Archive -Path osquery-5.11.0.windows_x86_64.zip -DestinationPath . -Force
 copy "osquery-5.11.0.windows_x86_64\Program Files\osquery\osqueryi.exe" plugins\osquery\osqueryi-windows-amd64.exe
 upx-4.2.2-win64\upx.exe -9 --lzma plugins\osquery\osqueryi-windows-amd64.exe
+plugins\osquery\osqueryi-windows-amd64.exe --help
 
 Invoke-WebRequest -Uri https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai.exe -UseBasicParsing -OutFile plugins/dosai/dosai-windows-amd64.exe
 
