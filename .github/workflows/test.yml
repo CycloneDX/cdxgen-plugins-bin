@@ -21,7 +21,7 @@ jobs:
         go-version: '^1.19.8'
     - uses: actions/setup-python@v4
       with:
-        python-version: '3.10'
+        python-version: '3.11'
     - uses: actions/cache@v3
       with:
         path: |
@@ -32,10 +32,10 @@ jobs:
           ${{ runner.os }}-go-
     - name: Build
       run: |
-        wget https://github.com/upx/upx/releases/download/v4.2.1/upx-4.2.1-amd64_linux.tar.xz
-        tar -xvf upx-4.2.1-amd64_linux.tar.xz
-        chmod +x upx-4.2.1-amd64_linux/upx
-        sudo cp upx-4.2.1-amd64_linux/upx /usr/local/bin/
+        wget https://github.com/upx/upx/releases/download/v4.2.2/upx-4.2.2-amd64_linux.tar.xz
+        tar -xvf upx-4.2.2-amd64_linux.tar.xz
+        chmod +x upx-4.2.2-amd64_linux/upx
+        sudo cp upx-4.2.2-amd64_linux/upx /usr/local/bin/
         bash build.sh
         pip3 install blint
         blint -i plugins -o /tmp/reports
@@ -43,7 +43,13 @@ jobs:
         pushd packages/windows-amd64
         npm publish --dry-run
         popd
-        pushd packages/arm64
+        pushd packages/linux-arm64
+        npm publish --dry-run
+        popd
+        pushd packages/windows-arm64
+        npm publish --dry-run
+        popd
+        pushd packages/darwin-arm64
         npm publish --dry-run
         popd
         pushd packages/ppc64
