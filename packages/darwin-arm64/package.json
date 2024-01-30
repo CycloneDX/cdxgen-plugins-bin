@@ -1,7 +1,7 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin-ppc64",
+  "name": "@cyclonedx/cdxgen-plugins-bin-darwin-arm64",
   "version": "1.5.5",
-  "description": "ppc64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "description": "Arm64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -26,9 +26,9 @@
     "plugins/"
   ],
   "os": [
-    "linux"
+    "darwin"
   ],
   "cpu": [
-    "ppc64"
+    "arm64"
   ]
 }

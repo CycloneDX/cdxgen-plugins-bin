@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cdxgen-plugins-bin-arm64",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Arm64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
@@ -24,6 +24,9 @@
   "files": [
     "*.js",
     "plugins/"
+  ],
+  "os": [
+    "linux"
   ],
   "cpu": [
     "arm64"

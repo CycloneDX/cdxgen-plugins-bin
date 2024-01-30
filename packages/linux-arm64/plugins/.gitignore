@@ -1,0 +1,5 @@
+goversion/
+trivy/
+cargo-auditable/
+osquery/
+dosai/
