@@ -23,4 +23,5 @@ for plug in goversion trivy cargo-auditable
 do
     mkdir -p plugins/$plug
     mv ../../plugins/$plug/*linux-arm64* plugins/$plug/
+    upx -9 --lzma plugins/$plug/*linux-arm64* || true
 done

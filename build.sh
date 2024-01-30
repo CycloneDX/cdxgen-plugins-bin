@@ -31,8 +31,11 @@ do
 done
 
 ./plugins/osquery/osqueryi-linux-amd64 --help
+upx -9 --lzma ./plugins/goversion/goversion-linux-amd64
 ./plugins/goversion/goversion-linux-amd64
+upx -9 --lzma ./plugins/trivy/trivy-cdxgen-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
+upx -9 --lzma ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
 ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
 ./plugins/dosai/dosai-linux-amd64 --help
 
