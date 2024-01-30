@@ -21,7 +21,6 @@ New-Item -ItemType Directory -Path plugins\goversion -Force
 cd thirdparty\goversion
 go build -ldflags "-H=windowsgui -s -w" -o build\goversion-windows-amd64.exe
 ..\..\upx-4.2.2-win64\upx.exe -9 --lzma build\goversion-windows-amd64.exe
-build\goversion-windows-amd64.exe
 copy build\* ..\..\plugins\goversion\
 Remove-Item build -Recurse -Force
 cd ..\..
@@ -30,7 +29,6 @@ New-Item -ItemType Directory -Path plugins\cargo-auditable -Force
 cd thirdparty\cargo-auditable
 go build -ldflags "-H=windowsgui -s -w" -o build\cargo-auditable-windows-amd64.exe
 ..\..\upx-4.2.2-win64\upx.exe -9 --lzma build\cargo-auditable-windows-amd64.exe
-build\cargo-auditable-windows-amd64.exe
 copy build\* ..\..\plugins\cargo-auditable\
 Remove-Item build -Recurse -Force
 cd ..\..
@@ -39,7 +37,6 @@ New-Item -ItemType Directory -Path plugins\trivy -Force
 cd thirdparty\trivy
 go build -ldflags "-H=windowsgui -s -w" -o build\trivy-windows-amd64.exe
 ..\..\upx-4.2.2-win64\upx.exe -9 --lzma build\trivy-windows-amd64.exe
-build\trivy-windows-amd64.exe -v
 copy build\* ..\..\plugins\trivy\
 Remove-Item build -Recurse -Force
 cd ..\..
