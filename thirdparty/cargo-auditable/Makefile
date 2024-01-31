@@ -35,7 +35,7 @@ build/linux_ppc64le: $(sources)
 	$(call sha,linux,ppc64le,)
 
 ##### DARWIN (MAC) BUILDS #####
-darwin: build/darwin_arm64
+darwin: build/darwin_amd64 build/darwin_arm64
 
 build/darwin_amd64: $(sources)
 	$(call build,darwin,amd64,)
