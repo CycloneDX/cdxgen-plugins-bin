@@ -9,8 +9,8 @@ mkdir -p plugins/osquery plugins/dosai
 
 wget https://github.com/osquery/osquery/releases/download/5.11.0/osquery-5.11.0_1.macos_x86_64.tar.gz
 tar -xvf osquery-5.11.0_1.macos_x86_64.tar.gz
-cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-macos-amd64
-sha256sum plugins/osquery/osqueryi-macos-amd64 > plugins/osquery/osqueryi-macos-amd64.sha256
+cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-darwin-amd64
+sha256sum plugins/osquery/osqueryi-darwin-amd64 > plugins/osquery/osqueryi-darwin-amd64.sha256
 rm -rf etc usr var opt
 rm osquery-5.11.0_1.macos_x86_64.tar.gz
 
