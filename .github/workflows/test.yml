@@ -52,6 +52,9 @@ jobs:
         pushd packages/darwin-arm64
         npm publish --dry-run
         popd
+        pushd packages/darwin-amd64
+        npm publish --dry-run
+        popd
         pushd packages/ppc64
         npm publish --dry-run
         popd

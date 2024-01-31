@@ -71,6 +71,13 @@ jobs:
         npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
         popd
 
+        pushd packages/darwin-amd64
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
+
         pushd packages/ppc64
         echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'

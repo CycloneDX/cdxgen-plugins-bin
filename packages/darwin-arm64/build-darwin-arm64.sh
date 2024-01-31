@@ -7,7 +7,7 @@ rm -rf plugins/osquery
 rm -rf plugins/dosai
 mkdir -p plugins/osquery plugins/dosai
 
-curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -o plugins/dosai/dosai-darwin-arm64
+curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-osx-arm64 -o plugins/dosai/dosai-darwin-arm64
 chmod +x plugins/dosai/dosai-darwin-arm64
 sha256sum plugins/dosai/dosai-darwin-arm64 > plugins/dosai/dosai-darwin-arm64.sha256
 
