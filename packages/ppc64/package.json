@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cdxgen-plugins-bin-ppc64",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "ppc64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
