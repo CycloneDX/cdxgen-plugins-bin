@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf plugins/goversion
 rm -rf plugins/trivy
 rm -rf plugins/cargo-auditable
 rm -rf plugins/osquery
@@ -19,7 +18,7 @@ curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -
 chmod +x plugins/dosai/dosai-linux-amd64
 sha256sum plugins/dosai/dosai-linux-amd64 > plugins/dosai/dosai-linux-amd64.sha256
 
-for plug in goversion trivy cargo-auditable
+for plug in trivy cargo-auditable
 do
     mkdir -p plugins/$plug
     pushd thirdparty/$plug
@@ -31,8 +30,6 @@ do
 done
 
 ./plugins/osquery/osqueryi-linux-amd64 --help
-upx -9 --lzma ./plugins/goversion/goversion-linux-amd64
-./plugins/goversion/goversion-linux-amd64
 upx -9 --lzma ./plugins/trivy/trivy-cdxgen-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
 upx -9 --lzma ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
