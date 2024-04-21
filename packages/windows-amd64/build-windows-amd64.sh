@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 rm -rf plugins/trivy
-rm -rf plugins/cargo-auditable
 rm -rf plugins/osquery
 rm -rf plugins/dosai
 mkdir -p plugins/osquery plugins/dosai
@@ -17,7 +16,7 @@ rm osquery-5.11.0.windows_x86_64.zip
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai.exe -o plugins/dosai/dosai-windows-amd64.exe
 sha256sum plugins/dosai/dosai-windows-amd64.exe > plugins/dosai/dosai-windows-amd64.exe.sha256
 
-for plug in trivy cargo-auditable
+for plug in trivy
 do
     mkdir -p plugins/$plug
     mv ../../plugins/$plug/*windows-amd64* plugins/$plug/

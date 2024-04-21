@@ -1,4 +1,3 @@
-New-Item -ItemType Directory -Path plugins\cargo-auditable -Force
 New-Item -ItemType Directory -Path plugins\osquery -Force
 New-Item -ItemType Directory -Path plugins\dosai -Force
 
@@ -16,14 +15,6 @@ Invoke-WebRequest -Uri https://github.com/owasp-dep-scan/dosai/releases/latest/d
 set CGO_ENABLED=0
 set GOOS=windows
 set GOARCH=amd64
-
-New-Item -ItemType Directory -Path plugins\cargo-auditable -Force
-cd thirdparty\cargo-auditable
-go build -ldflags "-H=windowsgui -s -w" -o build\cargo-auditable-windows-amd64.exe
-..\..\upx-4.2.2-win64\upx.exe -9 --lzma build\cargo-auditable-windows-amd64.exe
-copy build\* ..\..\plugins\cargo-auditable\
-Remove-Item build -Recurse -Force
-cd ..\..
 
 New-Item -ItemType Directory -Path plugins\trivy -Force
 cd thirdparty\trivy
