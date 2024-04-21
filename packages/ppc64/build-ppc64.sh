@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 rm -rf plugins/trivy
-rm -rf plugins/cargo-auditable
 
-for plug in trivy cargo-auditable
+for plug in trivy
 do
     mkdir -p plugins/$plug
     mv ../../plugins/$plug/*ppc64* plugins/$plug/
