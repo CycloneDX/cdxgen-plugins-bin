@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 rm -rf plugins/trivy
-rm -rf plugins/cargo-auditable
 rm -rf plugins/osquery
 rm -rf plugins/dosai
 mkdir -p plugins/osquery plugins/dosai
@@ -18,7 +17,7 @@ curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -
 chmod +x plugins/dosai/dosai-linux-amd64
 sha256sum plugins/dosai/dosai-linux-amd64 > plugins/dosai/dosai-linux-amd64.sha256
 
-for plug in trivy cargo-auditable
+for plug in trivy
 do
     mkdir -p plugins/$plug
     pushd thirdparty/$plug
@@ -32,8 +31,6 @@ done
 ./plugins/osquery/osqueryi-linux-amd64 --help
 upx -9 --lzma ./plugins/trivy/trivy-cdxgen-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
-upx -9 --lzma ./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
-./plugins/cargo-auditable/cargo-auditable-cdxgen-linux-amd64
 ./plugins/dosai/dosai-linux-amd64 --help
 
 for flavours in windows-amd64 linux-arm64 windows-arm64 darwin-arm64 darwin-amd64 ppc64
