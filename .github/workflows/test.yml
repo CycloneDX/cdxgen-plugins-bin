@@ -30,12 +30,16 @@ jobs:
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-
+    - name: Trim CI agent
+      run: |
+        chmod +x contrib/free_disk_space.sh
+        ./contrib/free_disk_space.sh
     - name: Build
       run: |
-        wget https://github.com/upx/upx/releases/download/v4.2.2/upx-4.2.2-amd64_linux.tar.xz
-        tar -xvf upx-4.2.2-amd64_linux.tar.xz
-        chmod +x upx-4.2.2-amd64_linux/upx
-        sudo cp upx-4.2.2-amd64_linux/upx /usr/local/bin/
+        wget https://github.com/upx/upx/releases/download/v4.2.4/upx-4.2.4-amd64_linux.tar.xz
+        tar -xvf upx-4.2.4-amd64_linux.tar.xz
+        chmod +x upx-4.2.4-amd64_linux/upx
+        sudo cp upx-4.2.4-amd64_linux/upx /usr/local/bin/
         bash build.sh
         pip3 install blint
         blint -i plugins -o /tmp/reports
