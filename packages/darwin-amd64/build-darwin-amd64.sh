@@ -5,11 +5,11 @@ rm -rf plugins/osquery
 rm -rf plugins/dosai
 mkdir -p plugins/osquery plugins/dosai
 
-wget https://github.com/osquery/osquery/releases/download/5.12.2/osquery-5.12.2_1.macos_x86_64.tar.gz
-tar -xvf osquery-5.12.2_1.macos_x86_64.tar.gz
+wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.macos_x86_64.tar.gz
+tar -xvf osquery-5.13.1_1.macos_x86_64.tar.gz
 cp -rf opt/osquery/lib/osquery.app plugins/osquery/osqueryi-darwin-amd64.app
 rm -rf etc usr var opt
-rm osquery-5.12.2_1.macos_x86_64.tar.gz
+rm osquery-5.13.1_1.macos_x86_64.tar.gz
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-osx-x64 -o plugins/dosai/dosai-darwin-amd64
 chmod +x plugins/dosai/dosai-darwin-amd64
