@@ -2,7 +2,9 @@ name: Build npm package
 
 on:
   pull_request:
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 jobs:
   pkg:
     runs-on: ubuntu-latest
@@ -26,14 +28,6 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
     - uses: oras-project/setup-oras@v1
     - run: oras version
-    - uses: actions/cache@v4
-      with:
-        path: |
-          ~/.cache/go-build
-          ~/go/pkg/mod
-        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-        restore-keys: |
-          ${{ runner.os }}-go-
     - name: Trim CI agent
       run: |
         chmod +x contrib/free_disk_space.sh
@@ -52,6 +46,9 @@ jobs:
         npm publish --dry-run
         popd
         pushd packages/linux-arm64
+        npm publish --dry-run
+        popd
+        pushd packages/linux-arm
         npm publish --dry-run
         popd
         pushd packages/windows-arm64
@@ -83,14 +80,6 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.11'
-    - uses: actions/cache@v4
-      with:
-        path: |
-          ~/.cache/go-build
-          ~/go/pkg/mod
-        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-        restore-keys: |
-          ${{ runner.os }}-go-
     - name: Build
       run: |
         .\build.ps1

@@ -37,7 +37,7 @@ upx -9 --lzma ./plugins/trivy/trivy-cdxgen-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
 ./plugins/dosai/dosai-linux-amd64 --help
 
-for flavours in windows-amd64 linux-arm64 windows-arm64 darwin-arm64 darwin-amd64 ppc64
+for flavours in windows-amd64 linux-arm64 linux-arm windows-arm64 darwin-arm64 darwin-amd64 ppc64
 do
     chmod +x packages/$flavours/build-$flavours.sh
     pushd packages/$flavours

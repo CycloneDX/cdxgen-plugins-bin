@@ -25,14 +25,6 @@ jobs:
       if: matrix.os == 'ubuntu-latest'
     - uses: oras-project/setup-oras@v1
     - run: oras version
-    - uses: actions/cache@v4
-      with:
-        path: |
-          ~/.cache/go-build
-          ~/go/pkg/mod
-        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-        restore-keys: |
-          ${{ runner.os }}-go-
     - name: Release
       run: |
         wget https://github.com/upx/upx/releases/download/v4.2.4/upx-4.2.4-amd64_linux.tar.xz
@@ -55,6 +47,13 @@ jobs:
         popd
 
         pushd packages/linux-arm64
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
+
+        pushd packages/linux-arm
         echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
         echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
