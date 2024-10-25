@@ -3,7 +3,10 @@
 rm -rf plugins/trivy
 rm -rf plugins/osquery
 rm -rf plugins/dosai
-mkdir -p plugins/osquery plugins/dosai
+rm -rf plugins/sourcekitten
+mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
+
+oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 -o plugins/sourcekitten/
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-osx-arm64 -o plugins/dosai/dosai-darwin-arm64
 chmod +x plugins/dosai/dosai-darwin-arm64
