@@ -7,6 +7,7 @@ rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
 oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 -o plugins/sourcekitten/
+sha256sum plugins/sourcekitten/sourcekitten > plugins/sourcekitten/sourcekitten.sha256
 
 wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.linux_x86_64.tar.gz
 tar -xvf osquery-5.13.1_1.linux_x86_64.tar.gz
