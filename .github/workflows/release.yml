@@ -61,6 +61,13 @@ jobs:
         npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
         popd
 
+        pushd packages/linux-arm
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
+
         pushd packages/windows-arm64
         echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'

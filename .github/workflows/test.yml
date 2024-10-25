@@ -54,6 +54,9 @@ jobs:
         pushd packages/linux-arm64
         npm publish --dry-run
         popd
+        pushd packages/linux-arm
+        npm publish --dry-run
+        popd
         pushd packages/windows-arm64
         npm publish --dry-run
         popd
