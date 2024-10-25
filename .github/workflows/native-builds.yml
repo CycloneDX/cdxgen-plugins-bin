@@ -1,0 +1,56 @@
+name: Build and Upload native binaries
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+env:
+  REGISTRY: ghcr.io
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+jobs:
+  builder:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: ['ubuntu-latest', 'macos-13', 'macos-15']
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+      packages: write
+    steps:
+    - uses: actions/checkout@v4
+    - uses: swift-actions/setup-swift@v2
+    - uses: oras-project/setup-oras@v1
+    - run: oras version
+    - name: Build
+      run: |
+        bash thirdparty/sourcekitten/build.sh
+        ls -l thirdparty/sourcekitten/SourceKitten/.build/release
+        echo $GITHUB_TOKEN | oras login ghcr.io -u $GITHUB_USERNAME --password-stdin
+      env:
+        GITHUB_USERNAME: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload linux amd64
+      run: |        
+        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
+          --artifact-type application/vnd.oras.config.v1+json \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+      if: matrix.os == 'macos-13'
+    - name: Upload darwin amd64
+      run: |        
+        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 \
+          --artifact-type application/vnd.oras.config.v1+json \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+      if: matrix.os == 'macos-13'
+    - name: Upload darwin arm64
+      run: |        
+        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 \
+          --artifact-type application/vnd.oras.config.v1+json \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+      if: matrix.os == 'macos-15'
