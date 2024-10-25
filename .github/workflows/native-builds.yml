@@ -39,7 +39,7 @@ jobs:
           --artifact-type application/vnd.oras.config.v1+json \
           ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
-      if: matrix.os == 'macos-13'
+      if: matrix.os == 'ubuntu-latest'
     - name: Upload darwin amd64
       run: |        
         oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 \
