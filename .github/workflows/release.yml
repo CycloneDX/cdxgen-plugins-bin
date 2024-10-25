@@ -21,6 +21,10 @@ jobs:
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.19.8'
+    - uses: swift-actions/setup-swift@v2
+      if: matrix.os == 'ubuntu-latest'
+    - uses: oras-project/setup-oras@v1
+    - run: oras version
     - uses: actions/cache@v4
       with:
         path: |

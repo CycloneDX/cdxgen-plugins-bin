@@ -3,7 +3,10 @@
 rm -rf plugins/trivy
 rm -rf plugins/osquery
 rm -rf plugins/dosai
-mkdir -p plugins/osquery plugins/dosai
+rm -rf plugins/sourcekitten
+mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
+
+oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 -o plugins/sourcekitten/
 
 wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.macos_x86_64.tar.gz
 tar -xvf osquery-5.13.1_1.macos_x86_64.tar.gz
@@ -20,3 +23,4 @@ do
     mkdir -p plugins/$plug
     mv ../../plugins/$plug/*darwin-amd64* plugins/$plug/
 done
+

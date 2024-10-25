@@ -3,7 +3,10 @@
 rm -rf plugins/trivy
 rm -rf plugins/osquery
 rm -rf plugins/dosai
-mkdir -p plugins/osquery plugins/dosai
+rm -rf plugins/sourcekitten
+mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
+
+oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 -o plugins/sourcekitten/
 
 wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.linux_x86_64.tar.gz
 tar -xvf osquery-5.13.1_1.linux_x86_64.tar.gz
