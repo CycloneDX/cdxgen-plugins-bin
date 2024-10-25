@@ -35,23 +35,26 @@ jobs:
         GITHUB_USERNAME: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload linux amd64
-      run: |        
+      run: |
+        cd thirdparty/sourcekitten/SourceKitten/.build/release/
         oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+          ./sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
       if: matrix.os == 'ubuntu-latest'
     - name: Upload darwin amd64
-      run: |        
+      run: |
+        cd thirdparty/sourcekitten/SourceKitten/.build/release/
         oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+          ./sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
       if: matrix.os == 'macos-13'
     - name: Upload darwin arm64
-      run: |        
+      run: |
+        cd thirdparty/sourcekitten/SourceKitten/.build/release/
         oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 \
           --artifact-type application/vnd.oras.config.v1+json \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
-          ./thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
+          ./sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
       if: matrix.os == 'macos-15'
