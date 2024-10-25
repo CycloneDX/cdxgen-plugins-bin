@@ -2,7 +2,9 @@ name: Build npm package
 
 on:
   pull_request:
-
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 jobs:
   pkg:
     runs-on: ubuntu-latest
