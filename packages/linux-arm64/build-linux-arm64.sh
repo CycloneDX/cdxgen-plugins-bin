@@ -6,6 +6,10 @@ rm -rf plugins/dosai
 rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
+# Get the linux version built by AppThreat
+oras pull ghcr.io/appthreat/cdxgen-plugins-bin:linux-arm64 -o plugins/sourcekitten/
+sha256sum plugins/sourcekitten/sourcekitten > plugins/sourcekitten/sourcekitten.sha256
+
 wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.linux_aarch64.tar.gz
 tar -xvf osquery-5.13.1_1.linux_aarch64.tar.gz
 cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-linux-arm64
