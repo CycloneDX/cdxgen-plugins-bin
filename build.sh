@@ -42,6 +42,5 @@ do
     chmod +x packages/$flavours/build-$flavours.sh
     pushd packages/$flavours
     ./build-$flavours.sh
-    rm -rf plugins
     popd
 done
