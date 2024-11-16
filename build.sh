@@ -9,13 +9,13 @@ mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 -o plugins/sourcekitten/
 sha256sum plugins/sourcekitten/sourcekitten > plugins/sourcekitten/sourcekitten.sha256
 
-wget https://github.com/osquery/osquery/releases/download/5.13.1/osquery-5.13.1_1.linux_x86_64.tar.gz
-tar -xvf osquery-5.13.1_1.linux_x86_64.tar.gz
+wget https://github.com/osquery/osquery/releases/download/5.14.1/osquery-5.14.1_1.linux_x86_64.tar.gz
+tar -xvf osquery-5.14.1_1.linux_x86_64.tar.gz
 cp opt/osquery/bin/osqueryd plugins/osquery/osqueryi-linux-amd64
 upx -9 --lzma plugins/osquery/osqueryi-linux-amd64
 sha256sum plugins/osquery/osqueryi-linux-amd64 > plugins/osquery/osqueryi-linux-amd64.sha256
 rm -rf etc usr var opt
-rm osquery-5.13.1_1.linux_x86_64.tar.gz
+rm osquery-5.14.1_1.linux_x86_64.tar.gz
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai -o plugins/dosai/dosai-linux-amd64
 chmod +x plugins/dosai/dosai-linux-amd64
