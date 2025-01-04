@@ -1,0 +1,17 @@
+{
+    "name": "@cyclonedx/cdxgen-plugins-bin-linux-amd64",
+    "version": "1.0.0",
+    "description": "CycloneDX plugins binary for Linux AMD64",
+    "main": "index.js",
+    "scripts": {
+      "build": "./build-linux-amd64.sh"
+    },
+    "keywords": [
+      "CycloneDX",
+      "plugins",
+      "linux",
+      "amd64"
+    ],
+    "license": "MIT"
+  }
+  
