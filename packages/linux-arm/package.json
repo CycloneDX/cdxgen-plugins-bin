@@ -1,6 +1,6 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin-arm",
-  "version": "1.6.9",
+  "name": "@cyclonedx/cdxgen-plugins-bin-linux-arm",
+  "version": "1.6.10",
   "description": "Arm binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {

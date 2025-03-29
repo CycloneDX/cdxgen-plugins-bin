@@ -12,12 +12,6 @@ jobs:
       contents: read
       packages: write
     steps:
-    - name: Upload Linux AMD64 Package
-      uses: actions/upload-artifact@v3
-      with:
-        name: linux-amd64-package
-        path: packages/linux-amd64/*.tgz
-    
     - uses: actions/checkout@v4
     - name: Use Node.js
       uses: actions/setup-node@v4
@@ -29,6 +23,8 @@ jobs:
         go-version: '^1.19.8'
     - uses: swift-actions/setup-swift@v2
       if: matrix.os == 'ubuntu-latest'
+      with:
+        swift-version: '6.0'
     - uses: oras-project/setup-oras@v1
     - run: oras version
     - name: Trim CI agent
@@ -50,6 +46,13 @@ jobs:
         npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
 
         pushd packages/windows-amd64
+        echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
+        echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc
+        npm publish --access=public --@cyclonedx:registry='https://registry.npmjs.org'
+        popd
+
+        pushd packages/linux-amd64
         echo "cyclonedx:registry=https://npm.pkg.github.com" > ~/.npmrc
         npm publish --access=public --@cyclonedx:registry='https://npm.pkg.github.com'
         echo "cyclonedx:registry=https://registry.npmjs.org" > ~/.npmrc

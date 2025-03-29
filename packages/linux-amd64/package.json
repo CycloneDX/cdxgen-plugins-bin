@@ -1,17 +1,34 @@
 {
-    "name": "@cyclonedx/cdxgen-plugins-bin-linux-amd64",
-    "version": "1.0.0",
-    "description": "CycloneDX plugins binary for Linux AMD64",
-    "main": "index.js",
-    "scripts": {
-      "build": "./build-linux-amd64.sh"
-    },
-    "keywords": [
-      "CycloneDX",
-      "plugins",
-      "linux",
-      "amd64"
-    ],
-    "license": "MIT"
-  }
-  
+  "name": "@cyclonedx/cdxgen-plugins-bin-linux-amd64",
+  "version": "1.6.10",
+  "description": "linux amd64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyclonedx/cdxgen-plugins-bin.git"
+  },
+  "keywords": [
+    "cdxgen",
+    "sbom",
+    "bom",
+    "plugins",
+    "dependency",
+    "appsec"
+  ],
+  "author": "Prabhu Subramanian <prabhu@appthreat.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cyclonedx/cdxgen-plugins-bin/issues"
+  },
+  "homepage": "https://github.com/cyclonedx/cdxgen-plugins-bin#readme",
+  "files": [
+    "*.js",
+    "plugins/"
+  ],
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ]
+}
