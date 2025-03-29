@@ -17,7 +17,7 @@ for plug in trivy osquery; do
     mkdir -p plugins/$plug
     # Check if the source plugin directory exists and is not empty
     if [ -d "../../plugins/$plug" ] && [ "$(ls -A ../../plugins/$plug/*linux-amd64* 2>/dev/null)" ]; then
-        cp ../../plugins/$plug/*linux-amd64* plugins/$plug/
+        mv ../../plugins/$plug/*linux-amd64* plugins/$plug/
         upx -9 --lzma plugins/$plug/*linux-amd64* || true  # Compress files if possible
     else
         echo "Warning: No files found for $plug in ../../plugins/$plug/"

@@ -23,7 +23,9 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: swift-actions/setup-swift@v2
-      if: matrix.os == 'ubuntu-latest'
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-15'
+      with:
+        swift-version: '6.0'
     - uses: oras-project/setup-oras@v1
     - run: oras version
     - name: Build
