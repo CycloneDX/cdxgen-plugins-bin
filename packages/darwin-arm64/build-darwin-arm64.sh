@@ -9,7 +9,7 @@ mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 -o plugins/sourcekitten/
 
 wget https://github.com/osquery/osquery/releases/download/5.16.0/osquery-5.16.0_1.macos_arm64.tar.gz
-tar -xvf osquery-5.16.0_1.macos_arm64.tar.gz
+tar -xf osquery-5.16.0_1.macos_arm64.tar.gz
 cp -rf opt/osquery/lib/osquery.app plugins/osquery/osqueryi-darwin-arm64.app
 rm -rf etc usr var opt
 rm osquery-5.16.0_1.macos_arm64.tar.gz
@@ -23,3 +23,5 @@ do
     mkdir -p plugins/$plug
     mv ../../plugins/$plug/*darwin-arm64* plugins/$plug/
 done
+
+rm -rf private

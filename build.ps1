@@ -20,13 +20,6 @@ copy build\* ..\..\plugins\trivy\
 Remove-Item build -Recurse -Force
 cd ..\..
 
-Write-Host "Building Linux AMD64 package..."
-Set-Location -Path packages/linux-amd64
-Copy-Item -Path ../../plugins/* -Destination plugins/
-npm install
-npm pack
-Set-Location -Path ../../
-
 Remove-Item osquery-5.16.0.windows_x86_64 -Recurse -Force
 Remove-Item osquery-5.16.0.windows_x86_64.zip -Recurse -Force
 Remove-Item upx-4.2.4-win64 -Recurse -Force
