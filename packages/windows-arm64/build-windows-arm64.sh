@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 rm -rf plugins/trivy
 rm -rf plugins/osquery
 rm -rf plugins/dosai
@@ -13,6 +15,8 @@ rm -rf osquery-5.16.0.windows_arm64
 rm osquery-5.16.0.windows_arm64.zip
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-windows-arm64.exe -o plugins/dosai/dosai-windows-arm64.exe
+# check if dosai working
+plugins/dosai/dosai-windows-arm64.exe --help
 sha256sum plugins/dosai/dosai-windows-arm64.exe > plugins/dosai/dosai-windows-arm64.exe.sha256
 
 for plug in trivy
