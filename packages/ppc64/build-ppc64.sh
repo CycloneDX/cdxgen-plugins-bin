@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 rm -rf plugins/trivy
 
 for plug in trivy

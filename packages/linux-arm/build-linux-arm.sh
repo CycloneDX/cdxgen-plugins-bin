@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 rm -rf plugins/trivy
 rm -rf plugins/osquery
 rm -rf plugins/dosai
