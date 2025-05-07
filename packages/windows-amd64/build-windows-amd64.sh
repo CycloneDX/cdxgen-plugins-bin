@@ -14,6 +14,8 @@ rm -rf osquery-5.16.0.windows_x86_64
 rm osquery-5.16.0.windows_x86_64.zip
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai.exe -o plugins/dosai/dosai-windows-amd64.exe
+# check if dosai working
+plugins/dosai/dosai-windows-amd64.exe --help
 sha256sum plugins/dosai/dosai-windows-amd64.exe > plugins/dosai/dosai-windows-amd64.exe.sha256
 
 for plug in trivy
