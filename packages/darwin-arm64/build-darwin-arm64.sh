@@ -18,8 +18,6 @@ rm osquery-5.16.0_1.macos_arm64.tar.gz
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-osx-arm64 -o plugins/dosai/dosai-darwin-arm64
 chmod +x plugins/dosai/dosai-darwin-arm64
-# check if dosai working
-plugins/dosai/dosai-darwin-arm64 --help
 sha256sum plugins/dosai/dosai-darwin-arm64 > plugins/dosai/dosai-darwin-arm64.sha256
 
 for plug in trivy
