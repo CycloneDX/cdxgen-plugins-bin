@@ -18,7 +18,6 @@ do
     popd
 done
 
-./plugins/osquery/osqueryi-linux-amd64 --help
 upx -9 --lzma ./plugins/trivy/trivy-cdxgen-linux-amd64
 ./plugins/trivy/trivy-cdxgen-linux-amd64 -v
 
