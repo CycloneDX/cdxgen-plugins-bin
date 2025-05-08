@@ -20,7 +20,6 @@ rm osquery-5.16.0_1.linux_x86_64.tar.gz
 # Download the Dosai binary
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-linux-amd64 -o plugins/dosai/dosai-linux-amd64
 chmod +x plugins/dosai/dosai-linux-amd64
-./plugins/dosai/dosai-linux-amd64 --help
 sha256sum plugins/dosai/dosai-linux-amd64 > plugins/dosai/dosai-linux-amd64.sha256
 
 for plug in trivy; do
