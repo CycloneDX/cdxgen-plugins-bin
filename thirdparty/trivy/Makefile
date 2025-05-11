@@ -35,8 +35,8 @@ build/linux_ppc64le: $(sources)
 	$(call sha,linux,ppc64le,)
 
 build/linux_riscv64: $(sources)
-    $(call build,linux,riscv64,)
-    $(call sha,linux,riscv64,)
+	$(call build,linux,riscv64,)
+	$(call sha,linux,riscv64,)
 
 ##### DARWIN (MAC) BUILDS #####
 darwin: build/darwin_amd64 build/darwin_arm64
