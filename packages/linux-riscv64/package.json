@@ -1,7 +1,7 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin-linux-arm",
+  "name": "@cyclonedx/cdxgen-plugins-bin-linux-riscv64",
   "version": "1.6.12",
-  "description": "Arm binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "description": "RISC-V 64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -29,6 +29,6 @@
     "linux"
   ],
   "cpu": [
-    "arm"
+    "riscv64"
   ]
 }

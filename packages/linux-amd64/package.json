@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cdxgen-plugins-bin-linux-amd64",
-  "version": "1.6.11",
+  "version": "1.6.12",
   "description": "linux amd64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {

@@ -12,7 +12,7 @@ all: windows linux darwin
 clean: rm -rf build/
 
 ##### LINUX BUILDS #####
-linux: build/linux_amd64 build/linux_arm64 build/linux_arm build/linux_ppc64le
+linux: build/linux_amd64 build/linux_arm64 build/linux_arm build/linux_ppc64le build/linux_riscv64
 
 build/linux_386: $(sources)
 	$(call build,linux,386,)
@@ -33,6 +33,10 @@ build/linux_arm64: $(sources)
 build/linux_ppc64le: $(sources)
 	$(call build,linux,ppc64le,)
 	$(call sha,linux,ppc64le,)
+
+build/linux_riscv64: $(sources)
+	$(call build,linux,riscv64,)
+	$(call sha,linux,riscv64,)
 
 ##### DARWIN (MAC) BUILDS #####
 darwin: build/darwin_amd64 build/darwin_arm64
