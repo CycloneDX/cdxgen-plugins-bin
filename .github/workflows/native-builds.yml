@@ -43,6 +43,7 @@ jobs:
     - name: Build
       run: |
         bash thirdparty/sourcekitten/build.sh
+        ls -al thirdparty/sourcekitten/SourceKitten/.build
         ls -l thirdparty/sourcekitten/SourceKitten/.build/release
         echo $GITHUB_TOKEN | oras login ghcr.io -u $GITHUB_USERNAME --password-stdin
       env:
@@ -50,17 +51,37 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload linux amd64
       run: |
-        cd thirdparty/sourcekitten/SourceKitten/.build/release/
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
+        pushd thirdparty/trivy
+        make build/linuxmusl_amd64
+        popd
+        sudo chown -R $USER:$USER thirdparty/trivy/build/
+        mkdir -p uploads
+        cp thirdparty/trivy/build/trivy* uploads/
+        cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
+        cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
+        cd uploads
+        oras push --verbose --disable-path-validation ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
+          ./trivy-cdxgen-linuxmusl-amd64:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./trivy-cdxgen-linuxmusl-amd64.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
       if: matrix.os == 'ubuntu-24.04'
     - name: Upload linux arm64
       run: |
-        cd thirdparty/sourcekitten/SourceKitten/.build/release/
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 \
+        pushd thirdparty/trivy
+        make build/linuxmusl_arm64
+        popd
+        sudo chown -R $USER:$USER thirdparty/trivy/build/
+        mkdir -p uploads
+        cp thirdparty/trivy/build/trivy* uploads/
+        cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
+        cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
+        cd uploads
+        oras push --verbose --disable-path-validation ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 \
           --artifact-type application/vnd.oras.config.v1+json \
+          ./trivy-cdxgen-linuxmusl-arm64:application/vnd.cyclonedx.plugins.layer.v1+tar \
+          ./trivy-cdxgen-linuxmusl-arm64.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./sourcekitten:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./sourcekitten.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar
       if: matrix.os == 'ubuntu-24.04-arm'

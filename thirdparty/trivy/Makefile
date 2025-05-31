@@ -1,6 +1,7 @@
 PATH  := $(PATH):/usr/local/go/bin:$HOME/go/bin:
 appname := trivy-cdxgen
 sources := main.go
+docker_cmd := docker
 
 build = CGO_ENABLED=0 GOOS=$(1) GOARCH=$(2) go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-$(1)-$(2)$(3)
 sha = cd build && sha256sum $(appname)-$(1)-$(2)$(3) > $(appname)-$(1)-$(2)$(3).sha256
@@ -13,6 +14,8 @@ clean: rm -rf build/
 
 ##### LINUX BUILDS #####
 linux: build/linux_amd64 build/linux_arm64 build/linux_arm build/linux_ppc64le build/linux_riscv64
+
+linuxmusl: build/linuxmusl_amd64 build/linuxmusl_arm64
 
 build/linux_386: $(sources)
 	$(call build,linux,386,)
@@ -29,6 +32,14 @@ build/linux_arm: $(sources)
 build/linux_arm64: $(sources)
 	$(call build,linux,arm64,)
 	$(call sha,linux,arm64,)
+
+build/linuxmusl_%: $(sources)
+	$(docker_cmd) run --rm \
+		--platform=linux/$* \
+		-v "$(PWD)":/src \
+		-w /src \
+		golang:1.19-alpine \
+		sh -c 'CGO_ENABLED=0 GOOS=linux GOARCH=$* go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-linuxmusl-$* && cd build && sha256sum $(appname)-linuxmusl-$* > $(appname)-linuxmusl-$*.sha256'
 
 build/linux_ppc64le: $(sources)
 	$(call build,linux,ppc64le,)

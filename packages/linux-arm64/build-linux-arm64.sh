@@ -9,6 +9,8 @@ rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
 oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 -o plugins/sourcekitten/
+rm -f plugins/sourcekitten/trivy-cdxgen-*
+ls -l plugins/sourcekitten/
 
 wget https://github.com/osquery/osquery/releases/download/5.17.0/osquery-5.17.0_1.linux_aarch64.tar.gz
 tar -xf osquery-5.17.0_1.linux_aarch64.tar.gz
