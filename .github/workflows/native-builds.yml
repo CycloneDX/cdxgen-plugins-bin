@@ -67,9 +67,9 @@ jobs:
       run: |
         pushd thirdparty/trivy
         make build/linuxmusl_amd64
+        sudo chown -R $USER:$USER build/
         upx -9 --lzma ./build/trivy-cdxgen-linuxmusl-amd64
         popd
-        sudo chown -R $USER:$USER thirdparty/trivy/build/
         mkdir -p uploads
         cp thirdparty/trivy/build/trivy* uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
@@ -86,9 +86,9 @@ jobs:
       run: |
         pushd thirdparty/trivy
         make build/linuxmusl_arm64
+        sudo chown -R $USER:$USER build/
         upx -9 --lzma ./build/trivy-cdxgen-linuxmusl-arm64
         popd
-        sudo chown -R $USER:$USER thirdparty/trivy/build/
         mkdir -p uploads
         cp thirdparty/trivy/build/trivy* uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
