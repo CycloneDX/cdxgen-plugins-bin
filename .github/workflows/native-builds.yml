@@ -60,7 +60,7 @@ jobs:
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
         cd uploads
-        oras push --verbose --disable-path-validation ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
+        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./trivy-cdxgen-linuxmusl-amd64:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./trivy-cdxgen-linuxmusl-amd64.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar \
@@ -78,7 +78,7 @@ jobs:
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
         cd uploads
-        oras push --verbose --disable-path-validation ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 \
+        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./trivy-cdxgen-linuxmusl-arm64:application/vnd.cyclonedx.plugins.layer.v1+tar \
           ./trivy-cdxgen-linuxmusl-arm64.sha256:application/vnd.cyclonedx.plugins.layer.v1+tar \
