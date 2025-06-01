@@ -1,7 +1,7 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin-linux-amd64",
+  "name": "@cyclonedx/cdxgen-plugins-bin-linuxmusl-arm64",
   "version": "1.6.12",
-  "description": "linux amd64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "description": "Linux musl arm64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -28,8 +28,8 @@
   "os": [
     "linux"
   ],
-  "libc": "glibc",
+  "libc": "musl",
   "cpu": [
-    "x64"
+    "arm64"
   ]
 }
