@@ -22,6 +22,20 @@ jobs:
       packages: write
     steps:
     - uses: actions/checkout@v4
+    - name: setup upx
+      run: |
+        wget https://github.com/upx/upx/releases/download/v5.0.1/upx-5.0.1-amd64_linux.tar.xz
+        tar -xvf upx-5.0.1-amd64_linux.tar.xz
+        chmod +x upx-5.0.1-amd64_linux/upx
+        sudo cp upx-5.0.1-amd64_linux/upx /usr/local/bin/
+      if: matrix.os == 'ubuntu-24.04'
+    - name: setup upx
+      run: |
+        wget https://github.com/upx/upx/releases/download/v5.0.1/upx-5.0.1-arm64_linux.tar.xz
+        tar -xvf upx-5.0.1-arm64_linux.tar.xz
+        chmod +x upx-5.0.1-arm64_linux/upx
+        sudo cp upx-5.0.1-arm64_linux/upx /usr/local/bin/
+      if: matrix.os == 'ubuntu-24.04-arm'
     - name: Setup swift
       if: matrix.os == 'ubuntu-24.04' || matrix.os == 'ubuntu-24.04-arm'
       run: |
@@ -53,6 +67,7 @@ jobs:
       run: |
         pushd thirdparty/trivy
         make build/linuxmusl_amd64
+        upx -9 --lzma ./build/trivy-cdxgen-linuxmusl-amd64
         popd
         sudo chown -R $USER:$USER thirdparty/trivy/build/
         mkdir -p uploads
@@ -71,6 +86,7 @@ jobs:
       run: |
         pushd thirdparty/trivy
         make build/linuxmusl_arm64
+        upx -9 --lzma ./build/trivy-cdxgen-linuxmusl-arm64
         popd
         sudo chown -R $USER:$USER thirdparty/trivy/build/
         mkdir -p uploads
