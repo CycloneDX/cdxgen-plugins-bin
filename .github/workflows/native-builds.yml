@@ -10,6 +10,10 @@ env:
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
+
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
+
 jobs:
   builder:
     strategy:
@@ -18,8 +22,8 @@ jobs:
         os: ['ubuntu-24.04', 'ubuntu-24.04-arm', 'macos-13', 'macos-15']
     runs-on: ${{ matrix.os }}
     permissions:
-      contents: write
-      packages: write
+      contents: read
+      packages: write  # needed for publishing to GH container registry
     steps:
     - uses: actions/checkout@v4
     - name: setup upx

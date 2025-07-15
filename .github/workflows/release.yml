@@ -5,12 +5,15 @@ on:
     tags:
     - 'v*'
 
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions: {}
+
 jobs:
   pkg:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
+      packages: write  # needed for publishing to GH package registry
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js
