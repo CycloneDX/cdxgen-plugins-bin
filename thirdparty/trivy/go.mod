@@ -1,6 +1,6 @@
 module trivy-cdxgen
 
-go 1.19
+go 1.21
 
 require (
 	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible
@@ -14,7 +14,7 @@ require (
 	github.com/alicebob/miniredis/v2 v2.30.4
 	github.com/aquasecurity/bolt-fixtures v0.0.0-20200903104109-d34e7f983986
 	github.com/aquasecurity/defsec v0.91.1
-	github.com/aquasecurity/go-dep-parser v0.0.0-20230823094455-40c1f85cc942
+	github.com/aquasecurity/go-dep-parser v0.0.0-20240606050805-1de9a375c629
 	github.com/aquasecurity/go-gem-version v0.0.0-20201115065557-8eed6fe000ce
 	github.com/aquasecurity/go-npm-version v0.0.0-20201110091526-0b796d180798
 	github.com/aquasecurity/go-pep440-version v0.0.0-20210121094942-22b2f8951d46
@@ -76,7 +76,7 @@ require (
 	github.com/openvex/go-vex v0.2.1
 	github.com/owenrumney/go-sarif/v2 v2.2.0
 	github.com/package-url/packageurl-go v0.1.1
-	github.com/samber/lo v1.38.1
+	github.com/samber/lo v1.39.0
 	github.com/saracen/walker v0.1.3
 	github.com/secure-systems-lab/go-securesystemslib v0.7.0
 	github.com/sigstore/rekor v1.2.1
@@ -95,12 +95,12 @@ require (
 	github.com/xeipuuv/gojsonschema v1.2.0
 	github.com/xlab/treeprint v1.2.0
 	go.etcd.io/bbolt v1.3.7
-	go.uber.org/zap v1.25.0
+	go.uber.org/zap v1.26.0
 	golang.org/x/exp v0.0.0-20230522175609-2e198f4a06a1
-	golang.org/x/mod v0.12.0
+	golang.org/x/mod v0.15.0
 	golang.org/x/sync v0.3.0
-	golang.org/x/term v0.11.0
-	golang.org/x/text v0.12.0
+	golang.org/x/term v0.16.0
+	golang.org/x/text v0.14.0
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2
 	google.golang.org/protobuf v1.31.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -357,12 +357,12 @@ require (
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
 	go.starlark.net v0.0.0-20200306205701-8dd3e2ee1dd5 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
-	golang.org/x/crypto v0.12.0 // indirect
-	golang.org/x/net v0.14.0 // indirect
+	golang.org/x/crypto v0.18.0 // indirect
+	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
-	golang.org/x/sys v0.11.0 // indirect
+	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
-	golang.org/x/tools v0.10.0 // indirect
+	golang.org/x/tools v0.13.0 // indirect
 	google.golang.org/api v0.122.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230526161137-0005af68ea54 // indirect
