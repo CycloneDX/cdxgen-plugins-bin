@@ -23,7 +23,7 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - uses: actions/setup-go@v5
       with:
-        go-version: '^1.19.8'
+        go-version: '^1.25.5'
     - uses: swift-actions/setup-swift@v2
       if: matrix.os == 'ubuntu-latest'
       with:

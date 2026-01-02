@@ -1,6 +1,6 @@
 {
   "name": "@cyclonedx/cdxgen-plugins-bin-windows-arm64",
-  "version": "1.8.0",
+  "version": "2.0.0",
   "description": "Arm64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
   "main": "index.js",
   "repository": {
