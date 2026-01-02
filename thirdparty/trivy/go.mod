@@ -61,12 +61,12 @@ require (
 	github.com/kylelemons/godebug v1.1.0
 	github.com/magefile/mage v1.15.0
 	github.com/mailru/easyjson v0.7.7
-	github.com/masahiro331/go-disk v0.0.0-20220919035250-c8da316f91ac
+	github.com/masahiro331/go-disk v0.0.0-20240625071113-56c933208fee
 	github.com/masahiro331/go-ebs-file v0.0.0-20230228042409-005c81d4ae43
 	github.com/masahiro331/go-ext4-filesystem v0.0.0-20230612143131-27ccd485b7a1
 	github.com/masahiro331/go-mvn-version v0.0.0-20210429150710-d3157d602a08
 	github.com/masahiro331/go-vmdk-parser v0.0.0-20221225061455-612096e4bbbd
-	github.com/masahiro331/go-xfs-filesystem v0.0.0-20230608043311-a335f4599b70
+	github.com/masahiro331/go-xfs-filesystem v0.0.0-20231205045356-1b22259a6c44
 	github.com/mitchellh/hashstructure/v2 v2.0.2
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/moby/buildkit v0.11.6
