@@ -1602,6 +1602,8 @@ github.com/knqyf263/go-deb-version v0.0.0-20230223133812-3ed183d23422 h1:PPPlUUq
 github.com/knqyf263/go-deb-version v0.0.0-20230223133812-3ed183d23422/go.mod h1:ijAmSS4jErO6+KRzcK6ixsm3Vt96hMhJ+W+x+VmbrQA=
 github.com/knqyf263/go-rpm-version v0.0.0-20220614171824-631e686d1075 h1:aC6MEAs3PE3lWD7lqrJfDxHd6hcced9R4JTZu85cJwU=
 github.com/knqyf263/go-rpm-version v0.0.0-20220614171824-631e686d1075/go.mod h1:i4sF0l1fFnY1aiw08QQSwVAFxHEm311Me3WsU/X7nL0=
+github.com/knqyf263/go-rpm-version v0.0.0-20240918084003-2afd7dc6a38f h1:xt29M2T6STgldg+WEP51gGePQCsQvklmP2eIhPIBK3g=
+github.com/knqyf263/go-rpm-version v0.0.0-20240918084003-2afd7dc6a38f/go.mod h1:i4sF0l1fFnY1aiw08QQSwVAFxHEm311Me3WsU/X7nL0=
 github.com/knqyf263/go-rpmdb v0.0.0-20221030142135-919c8a52f04f h1:oz80cOWEcx/tTh5T0g43oz5W7zZw8jm7zD5BR9tQjX8=
 github.com/knqyf263/go-rpmdb v0.0.0-20221030142135-919c8a52f04f/go.mod h1:zp6SMcRd0GB+uwNJjr+DkrNZdQZ4er2HMO6KyD0vIGU=
 github.com/knqyf263/go-rpmdb v0.0.0-20230301153543-ba94b245509b h1:boYyvL3tbUuKcMN029mpCl7oYYJ7yIXujLj+fiW4Alc=
