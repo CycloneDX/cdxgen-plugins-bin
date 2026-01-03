@@ -1,7 +1,7 @@
 {
-  "name": "@cyclonedx/cdxgen-plugins-bin-linux-riscv64",
+  "name": "@cdxgen/cdxgen-plugins-bin-linux-riscv64",
   "version": "2.0.0",
-  "description": "RISC-V 64 binary plugins to supercharge @cyclonedx/cdxgen npm package",
+  "description": "RISC-V 64 binary plugins to supercharge @cdxgen/cdxgen npm package",
   "main": "index.js",
   "repository": {
     "type": "git",
