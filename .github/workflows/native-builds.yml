@@ -79,7 +79,7 @@ jobs:
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
         cd uploads
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 \
+        oras push ghcr.io/cdxgen/cdxgen-plugins-bin:linux-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./trivy-cdxgen-linuxmusl-amd64:application/vnd.cdxgen.plugins.layer.v1+tar \
           ./trivy-cdxgen-linuxmusl-amd64.sha256:application/vnd.cdxgen.plugins.layer.v1+tar \
@@ -98,7 +98,7 @@ jobs:
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten uploads/
         cp thirdparty/sourcekitten/SourceKitten/.build/release/sourcekitten.sha256 uploads/
         cd uploads
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 \
+        oras push ghcr.io/cdxgen/cdxgen-plugins-bin:linux-arm64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./trivy-cdxgen-linuxmusl-arm64:application/vnd.cdxgen.plugins.layer.v1+tar \
           ./trivy-cdxgen-linuxmusl-arm64.sha256:application/vnd.cdxgen.plugins.layer.v1+tar \
@@ -108,7 +108,7 @@ jobs:
     - name: Upload darwin amd64
       run: |
         cd thirdparty/sourcekitten/SourceKitten/.build/release/
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 \
+        oras push ghcr.io/cdxgen/cdxgen-plugins-bin:darwin-amd64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./sourcekitten:application/vnd.cdxgen.plugins.layer.v1+tar \
           ./sourcekitten.sha256:application/vnd.cdxgen.plugins.layer.v1+tar
@@ -116,7 +116,7 @@ jobs:
     - name: Upload darwin arm64
       run: |
         cd thirdparty/sourcekitten/SourceKitten/.build/release/
-        oras push ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 \
+        oras push ghcr.io/cdxgen/cdxgen-plugins-bin:darwin-arm64 \
           --artifact-type application/vnd.oras.config.v1+json \
           ./sourcekitten:application/vnd.cdxgen.plugins.layer.v1+tar \
           ./sourcekitten.sha256:application/vnd.cdxgen.plugins.layer.v1+tar
