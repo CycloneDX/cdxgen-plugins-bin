@@ -14,6 +14,8 @@ plugins\osquery\osqueryi-windows-amd64.exe --help
 Invoke-WebRequest -Uri https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai.exe -UseBasicParsing -OutFile plugins/dosai/dosai-windows-amd64.exe
 
 cd thirdparty\trivy
+$env:GOEXPERIMENT = "jsonv2"
+$env:CGO_ENABLED = "0"
 go build -ldflags "-H=windowsgui -s -w" -o build\trivy-windows-amd64.exe
 ..\..\upx-5.0.2-win64\upx.exe -9 --lzma build\trivy-windows-amd64.exe
 copy build\* ..\..\plugins\trivy\
