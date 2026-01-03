@@ -25,9 +25,9 @@ jobs:
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.25.5'
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
-        python-version: '3.11'
+        python-version: '3.13'
     - uses: swift-actions/setup-swift@v2
       if: matrix.os == 'ubuntu-latest'
       with:
@@ -48,6 +48,7 @@ jobs:
         tar -xvf upx-5.0.2-amd64_linux.tar.xz
         chmod +x upx-5.0.2-amd64_linux/upx
         sudo cp upx-5.0.2-amd64_linux/upx /usr/local/bin/
+        npm config set //registry.npmjs.org/:_authToken=$NPMJS_AUTH_TOKEN
         bash build.sh
         pip3 install blint
         blint -i plugins -o /tmp/reports --no-error
@@ -85,6 +86,9 @@ jobs:
         pushd packages/ppc64
         npm publish --dry-run
         popd
+      env:
+        NPMJS_AUTH_TOKEN: ${{ secrets.CDX_NPM_TOKEN }}
+        NODE_OPTIONS: --max_old_space_size=4096        
   winpkg:
     runs-on: windows-latest
     permissions:
@@ -99,9 +103,9 @@ jobs:
     - uses: actions/setup-go@v5
       with:
         go-version: '^1.25.5'
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
-        python-version: '3.11'
+        python-version: '3.13'
     - name: Build
       run: |
         .\build.ps1
