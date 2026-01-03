@@ -22,7 +22,7 @@ jobs:
         node-version: 25.x
         registry-url: https://registry.npmjs.org/
         scope: '@cdxgen'
-    - uses: actions/setup-go@v5
+    - uses: actions/setup-go@v6
       with:
         go-version: '^1.25.5'
     - uses: swift-actions/setup-swift@v2
