@@ -25,7 +25,7 @@ jobs:
       contents: read
       packages: write  # needed for publishing to GH container registry
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: setup upx
       run: |
         wget https://github.com/upx/upx/releases/download/v5.0.2/upx-5.0.2-amd64_linux.tar.xz
