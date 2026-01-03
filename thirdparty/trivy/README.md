@@ -26,13 +26,14 @@ Go 1.25 or higher
 
 Minimal rootfs scanner for cdxgen
 
-Usage:
+```
 trivy-cdxgen [flags] ROOTDIR
 
 Flags:
 -h, --help help for trivy-cdxgen
 -o, --output string output file name
 -v, --version version for trivy-cdxgen
+```
 
 ## License
 
