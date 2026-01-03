@@ -8,7 +8,7 @@ rm -rf plugins/dosai
 rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
-oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-arm64 -o plugins/sourcekitten/
+oras pull ghcr.io/cdxgen/cdxgen-plugins-bin:darwin-arm64 -o plugins/sourcekitten/
 
 wget https://github.com/osquery/osquery/releases/download/5.20.0/osquery-5.20.0_1.macos_arm64.tar.gz
 tar -xf osquery-5.20.0_1.macos_arm64.tar.gz

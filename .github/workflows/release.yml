@@ -130,5 +130,5 @@ jobs:
         popd
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPMJS_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NPMJS_AUTH_TOKEN: ${{ secrets.CDX_NPM_TOKEN }}
         NODE_OPTIONS: --max_old_space_size=4096

@@ -8,7 +8,7 @@ rm -rf plugins/dosai
 rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
-oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:darwin-amd64 -o plugins/sourcekitten/
+oras pull ghcr.io/cdxgen/cdxgen-plugins-bin:darwin-amd64 -o plugins/sourcekitten/
 
 curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-osx-x64 -o plugins/dosai/dosai-darwin-amd64
 chmod +x plugins/dosai/dosai-darwin-amd64

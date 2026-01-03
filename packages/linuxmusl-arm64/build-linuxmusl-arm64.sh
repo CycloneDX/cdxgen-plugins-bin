@@ -10,6 +10,6 @@ curl -L https://github.com/owasp-dep-scan/dosai/releases/latest/download/Dosai-l
 chmod +x plugins/dosai/dosai
 sha256sum plugins/dosai/dosai > plugins/dosai/dosai.sha256
 
-oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 -o plugins/trivy/
+oras pull ghcr.io/cdxgen/cdxgen-plugins-bin:linux-arm64 -o plugins/trivy/
 rm -f plugins/trivy/sourcekitten*
 ls -l plugins/trivy/

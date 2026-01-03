@@ -5,7 +5,7 @@ set -e  # Exit on error
 rm -rf plugins/trivy plugins/osquery plugins/sourcekitten plugins/dosai
 mkdir -p plugins/trivy plugins/osquery plugins/sourcekitten plugins/dosai
 
-oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-amd64 -o plugins/sourcekitten/
+oras pull ghcr.io/cdxgen/cdxgen-plugins-bin:linux-amd64 -o plugins/sourcekitten/
 sha256sum plugins/sourcekitten/sourcekitten > plugins/sourcekitten/sourcekitten.sha256
 rm -f plugins/sourcekitten/trivy-cdxgen-*
 ls -l plugins/sourcekitten/

@@ -8,7 +8,7 @@ rm -rf plugins/dosai
 rm -rf plugins/sourcekitten
 mkdir -p plugins/osquery plugins/dosai plugins/sourcekitten
 
-oras pull ghcr.io/cyclonedx/cdxgen-plugins-bin:linux-arm64 -o plugins/sourcekitten/
+oras pull ghcr.io/cdxgen/cdxgen-plugins-bin:linux-arm64 -o plugins/sourcekitten/
 rm -f plugins/sourcekitten/trivy-cdxgen-*
 ls -l plugins/sourcekitten/
 
