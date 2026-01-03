@@ -39,7 +39,7 @@ build/linuxmusl_%: $(sources)
 		-v "$(PWD)":/src \
 		-w /src \
 		golang:1.25-alpine \
-		sh -c 'CGO_ENABLED=0 GOOS=linux GOARCH=$* go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-linuxmusl-$* && cd build && sha256sum $(appname)-linuxmusl-$* > $(appname)-linuxmusl-$*.sha256'
+		sh -c 'GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=$* go build -ldflags "-s -w -extldflags=-Wl,-z,now,-z,relro" -o build/$(appname)-linuxmusl-$* && cd build && sha256sum $(appname)-linuxmusl-$* > $(appname)-linuxmusl-$*.sha256'
 
 build/linux_ppc64le: $(sources)
 	$(call build,linux,ppc64le,)
